@@ -1,0 +1,183 @@
+/*estilos Globales*/
+
+:root {
+  --white: #f8f1f1;
+  --pink: #ffc1b6;
+} //customs properties
+
+
+*{box-sizing:border-box;} /*para que tome el 100% del padding y todo se vea bien*/
+
+body {
+  background-color: #f8f1f1;
+}
+button {
+  background-color: #ee99a0;
+  border-bottom: 50%;
+  color: black;
+  font-family: "Caveat", cursive;
+  font-size: 1em;
+  margin-bottom: 4.25rem;
+  margin-inline: 2rem;
+  width: 100px;
+  height: 50px;
+}
+
+h1,
+h2 {
+  font-size: 2.5rem;
+  color: black;
+  font-family: "Caveat", cursive;
+}
+.bgPink {
+  background-color: #94b5c0;
+}
+
+.images{
+  
+  display: grid; 
+  flex-grow: 1;
+  /*grid-template-columns: repeat(2, minmax(0,1fr));*/
+  grid-template-rows: repeat(2, minmax(0,2fr));
+  grid-template-columns:repeat(2, minmax(0,2fr));
+  grid-template-areas: 
+    "left-top right-top"
+    "left-bottom right-bottom";
+}
+
+.images img:first-child{
+  grid-area: left-top;
+}
+.images img:last-child{
+  grid-area: right-bottom;
+}
+  /*
+  flex: 0 0 50%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  grid-template-rows: repeat(2, minmax(0,1fr));*/
+
+.avatar {
+  border-radius: 50%;
+  width: 500px;
+  height: 500px;
+  object-fit: cover;/*para que una imagen entre*/
+  align-self: center;
+}
+.extraImages{
+  border-radius: 30%;
+  width: 350px;
+  height: 400px;
+}
+.presentation{
+  background-color: var(--white);
+}
+.text{
+  align-items: center;
+}
+.writing1{
+  font-family: "Caveat", cursive;
+  font-size: 3em;
+  text-align: left;
+}
+.writing2{
+  font-family: "Caveat", cursive;
+  font-size: 2em;
+  text-align: left;
+}
+.subtitle{
+  font-family: "Caveat", cursive;
+  font-size: 3em;
+  text-align: left;
+}
+.subSubtitle{
+  font-family: "Caveat", cursive;
+  font-size: 1.5em;
+  text-align: left;
+}
+.sectionPadding {
+  padding: 4.25rem 2rem;
+}
+/*estilos globales*/
+.container {
+  width: 60rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
+.center-vertical-and-horizontal {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+.imagenPortada {
+  justify-content: center;
+  height="50"
+}
+/*Estilos de componentes*/
+
+/*.underline {
+  text-decoration: underline;
+  text-decoration-color: var(--white);
+} otra manera de generar una linea y subrayar ua palabra
+*/
+
+.underline {
+  position: relative;
+}
+.underline::before {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  height: 0.26rem;
+  background-color: black;
+  width: 100%;
+  display: inline-block;
+}
+.text-and-image {
+  display: flex;
+  flex-direction: column; /* hace que los elementos se vena uno abajo del otro en todas las pantallas*/
+  gap: 3em; /*pone margenes entre los elemntos*/
+  align-items: center;
+  text-align: center;
+  padding: 4.25rem 2rem;
+}
+.text-and-image.cover {
+  padding-bottom: 0;
+}
+.text-and-image .mainContent {
+  /*flex-grow: 1;
+  align-items: stretch; /*los elementos van a tener la misma dimension*/
+  /* display: flex;
+  flex-direction: column;*/
+  background-color: #ad6c80;
+  display: grid;
+  gap: 3em;
+  flex-grow: 1;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  justify-items: center;
+}
+
+.text-and-image .mainContent header {
+  flex-grow: 1;
+}
+
+@media (min-width: 60rem) {
+  .text-and-image .mainContent {
+    justify-items: center;
+  }
+  .text-and-image {
+    flex-direction: row;
+    align-items: stretch;
+  }
+  .text{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+  }
+  .images{
+    flex: 1;
+    max-width: 100%;
+    align-self: center;
+  }
+}
